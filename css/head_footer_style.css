@@ -1,0 +1,75 @@
+.headerPrincipal {
+  display: flex;
+  max-height: 150px;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--Rosa);
+}
+.headerPrincipal.centradoH{
+  justify-content: center;
+}
+.logoPoke{
+    width: 320px;
+    height: 120px;
+}
+.usuario {
+  display: flex;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--Celeste);
+  border-radius: 15px;
+  color: var(--Negro);
+  border: 1px solid var(--Negro);
+  font-family: var(--textos);
+  font-weight: var(--textoPeso);
+  text-transform: uppercase;
+}
+.enlaceInicio,.enlaceUsuario{
+    text-decoration: none;
+}
+.enlaceUsuario:visited{
+    color: var(--Negro);
+}
+
+/*---Footer---*/
+footer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 0 0 rgba(255, 255, 255, 0.25) inset;
+  background-color: var(--Rosa);
+}
+.tfooter {
+  color: var(--Gris);
+  font-family: var(--textos);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: var(--textoPeso);
+  line-height: normal;
+  text-align: center;
+}
+.madein {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.github {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.githubLogo {
+  width: 25px;
+  height: 25px;
+  aspect-ratio: 1/1;
+}
