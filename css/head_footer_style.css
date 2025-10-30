@@ -73,3 +73,15 @@ footer {
   height: 25px;
   aspect-ratio: 1/1;
 }
+
+/* Nav */
+
+nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  gap: 45px;
+  background-color: var(--Rosa);
+}

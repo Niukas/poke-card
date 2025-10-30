@@ -1,17 +1,85 @@
 :root {
-    /* Variables de colores */
+  /* Variables de colores */
   --Rosa: #d84040;
-  --Rojo: #E62727;
+  --Rojo: #e62727;
   --Gris: #dcdcdc;
   --GrisInactivo: #8d8d8d;
-  --Celeste: #1E93AB;
-  --Negro: #1D1616;
-  --Amarillo: #FFE699;
-  --Blanco: #FFFEF2;
-  --BlancoH2: #FEF3E2;
-  --GrisClaro: #D9D9D9;
-  --Verde: #4CAF50;
-  
+  --Celeste: #1e93ab;
+  --Negro: #1d1616;
+  --Amarillo: #ffe699;
+  --Blanco: #fffef2;
+  --BlancoH2: #fef3e2;
+  --GrisClaro: #d9d9d9;
+  --Verde: #4caf50;
+
+  /* Colores de Tipos Pokemon*/
+  --Fuego: #ff4422;
+  --FuegoG1: #dd2211;
+  --FuegoG2: #ffaa22;
+
+  --Agua: #3399ff;
+  --AguaG1: #0055ee;
+  --AguaG2: #88ccff;
+
+  --Planta: #77cc55;
+  --PlantaG1: #449933;
+  --PlantaG2: #bbe577;
+
+  --Electrico: #ffcc33;
+  --ElectricoG1: #e5a500;
+  --ElectricoG2: #ffff77;
+
+  --Hielo: #66ccff;
+  --HieloG1: #3399dd;
+  --HieloG2: #aaeeff;
+
+  --Roca: #bbaa66;
+  --RocaG1: #887744;
+  --RocaG2: #d5c595;
+
+  --Tierra: #ddbb55;
+  --TierraG1: #aa8833;
+  --TierraG2: #ffe599;
+
+  --Volador: #8899ff;
+  --VoladorG1: #5566ee;
+  --VoladorG2: #bbddff;
+
+  --Veneno: #aa5599;
+  --VenenoG1: #773377;
+  --VenenoG2: #cc88dd;
+
+  --Lucha: #bb5544;
+  --LuchaG1: #883322;
+  --LuchaG2: #ee8866;
+
+  --Fantasma: #6666bb;
+  --FantasmaG1: #444488;
+  --FantasmaG2: #9999dd;
+
+  --Dragon: #7766ee;
+  --DragonG1: #4433bb;
+  --DragonG2: #aa99ff;
+
+  --Bicho: #aabb22;
+  --BichoG1: #778811;
+  --BichoG2: #ddee55;
+
+  --Psiquico: #ff5599;
+  --PsiquicoG1: #cc3377;
+  --PsiquicoG2: #ff99cc;
+
+  --Normal: #aaaa99;
+  --NormalG1: #797965;
+  --NormalG2: #ddddc5;
+
+  /* Rarezas */
+  --Comun: #a0a0a0;
+  --PocoComun: #2ecc71;
+  --Rara: #3498db;
+  --Epica: #9b59b6;
+  --Legendaria: #f1c40f;
+
   /*Variables de textos */
   --textos: "lores-12", sans-serif;
   --textoPx: 24px;
@@ -29,11 +97,15 @@ body {
 }
 
 /*Botones*/
-.boton{
-  display: flex;
-  padding: 16px 40px;
-  justify-content: center;
-  align-items: center;
+.boton {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  vertical-align: middle;
+  box-sizing: border-box;
   background-color: var(--GrisInactivo);
   text-decoration: none;
   font-family: var(--textos);
@@ -41,31 +113,47 @@ body {
   font-size: var(--textoPx);
   color: var(--Blanco);
   /*Sombra para simular que es pixelado*/
-  box-shadow: 0 -2px 0 0 rgba(74, 74, 74, 0.25) inset, 2px 0 0 0 rgba(74, 74, 74, 0.25), -2px 0 0 0 rgba(74, 74, 74, 0.25), 0 2px 0 0 rgba(74, 74, 74, 0.25), 0 -2px 0 0 rgba(74, 74, 74, 0.25);;
+  box-shadow: 0 -2px 0 0 rgba(74, 74, 74, 0.25) inset,
+    2px 0 0 0 rgba(74, 74, 74, 0.25), -2px 0 0 0 rgba(74, 74, 74, 0.25),
+    0 2px 0 0 rgba(74, 74, 74, 0.25), 0 -2px 0 0 rgba(74, 74, 74, 0.25);
 }
-.boton:hover{
+.boton:hover {
   background-color: var(--Celeste);
 }
-.boton:active{
+.boton:active {
   background-color: var(--Celeste);
   transform: translateY(5px);
   /*Invierto la sombra cuando se presiona*/
-  box-shadow: 0 2px 0 0 rgba(74, 74, 74, 0.25) inset, 2px 0 0 0 rgba(0, 0, 0, 0.25), -2px 0 0 0 rgba(0, 0, 0, 0.25), 0 2px 0 0 rgba(0, 0, 0, 0.25), 0 -2px 0 0 rgba(0, 0, 0, 0.25);;
+  box-shadow: 0 2px 0 0 rgba(74, 74, 74, 0.25) inset,
+    2px 0 0 0 rgba(0, 0, 0, 0.25), -2px 0 0 0 rgba(0, 0, 0, 0.25),
+    0 2px 0 0 rgba(0, 0, 0, 0.25), 0 -2px 0 0 rgba(0, 0, 0, 0.25);
 }
-.boton.activo{
+.boton.activo {
+  background-color: var(--Celeste);
+}
+.boton.abrir {
+  background-color: var(--Rojo);
+}
+.boton.abrir:hover {
   background-color: var(--Celeste);
 }
 
-.boton.rojo:hover{
+.boton.rojo:hover {
   background-color: var(--Rojo);
 }
-.boton.rojo:active{
+.boton.rojo:active {
   background-color: var(--Rojo);
   transform: translateY(5px);
   /*Invierto la sombra cuando se presiona*/
-  box-shadow: 0 2px 0 0 rgba(74, 74, 74, 0.25) inset, 2px 0 0 0 rgba(0, 0, 0, 0.25), -2px 0 0 0 rgba(0, 0, 0, 0.25), 0 2px 0 0 rgba(0, 0, 0, 0.25), 0 -2px 0 0 rgba(0, 0, 0, 0.25);;
+  box-shadow: 0 2px 0 0 rgba(74, 74, 74, 0.25) inset,
+    2px 0 0 0 rgba(0, 0, 0, 0.25), -2px 0 0 0 rgba(0, 0, 0, 0.25),
+    0 2px 0 0 rgba(0, 0, 0, 0.25), 0 -2px 0 0 rgba(0, 0, 0, 0.25);
 }
-
+.boton.abrir.sobres {
+  display: inline-flex; /* Usar flex para centrar mejor */
+  align-items: center; /* Centra verticalmente */
+  justify-content: center;
+}
 /*------------*/
 main {
   width: 100%;
@@ -73,17 +161,19 @@ main {
   align-items: center;
   justify-content: center;
   background-color: var(--BlancoH2);
-  padding: 20px 0;
+  padding: 100px 0;
 }
 
 .contenedorLogin,
-.contenedorRegistro{
+.contenedorRegistro,
+.contenedorDashboard,
+.contenedorAjustes {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: var(--textos);
-  font-size:  var(--textoPx);
+  font-size: var(--textoPx);
   font-weight: var(--textoPeso);
   background-color: var(--Celeste);
   padding: 40px;
@@ -91,18 +181,34 @@ main {
   gap: 30px;
   width: 600px;
 }
-.contenedorRegistro h2{
+.contenedorDashboard {
+  background-color: var(--Amarillo);
+  width: 1000px;
+}
+.contenedorCartas{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.contenedorLogin h2,
+.contenedorRegistro h2 {
   text-align: center;
   margin-bottom: 10px;
   font-family: var(--Titulos);
   font-size: var(--TitulosPx);
   font-weight: var(--TitulosPeso);
 }
-.contenedorRegistro label{
+.contenedorLogin,
+.contenedorRegistro label {
   justify-self: end;
 }
+.contenedorLogin input[type="text"],
+.contenedorLogin input[type="password"],
 .contenedorRegistro input[type="text"],
-.contenedorRegistro input[type="password"]{
+.contenedorRegistro input[type="password"] {
   width: 100%;
   padding: 8px;
   border: 2px solid var(--GrisClaro);
@@ -111,5 +217,59 @@ main {
   font-family: var(--textos);
   font-size: var(--textoPx);
   font-weight: var(--textoPeso);
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
+
+.exito,
+.error {
+  text-align: center;
+  width: 100%;
+  background-color: var(--Verde);
+  color: var(--BlancoH2);
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+.error {
+  background-color: var(--Rojo);
+}
+.botones {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+/*Estilos para sobres*/
+.contenedorSobres {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+.sobre {
+  position: relative;
+  z-index: 1;
+}
+
+.sobre + .sobre {
+  margin-left: -45px;
+}
+
+.sobreCentro {
+  z-index: 10;
+}
+
+.sobre:last-child {
+  z-index: 0;
+}
+.sobre svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/*  --------   */

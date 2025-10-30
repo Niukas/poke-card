@@ -10,12 +10,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Checkeo que las contrasenas sean las mismas 
     if ($contra !== $contraRepetida) {
-        $_SESSION['contra_iguales'] = "Ingrese dos contraseñas iguales";
+        $_SESSION['mensaje_error_registro'] = "Ingrese dos contraseñas iguales";
         header('Location: ../registro.php');
         exit;
     }
 
-    $cotraHasheada = md5($contra);
+    //Hasheo de contrasena
+    $cotraHasheada = password_hash($contra, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO usuarios (nombre, contrasena, id_avatar) VALUES (:nombre, :contrasena, :avatar);";
 
@@ -31,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $stmt->execute($datosInsertar); // le cargo los datos a la sentencia
 
-        $_SESSION['mensaje_exito_registro'] = "Registro hecho!"; // Envio el mensaje de exito devuelta al formulario
+        $_SESSION['mensaje_exito_registro'] = "!Registrado con exito!"; // Envio el mensaje de exito devuelta al formulario
         header('Location: ../registro.php');
         exit;
     } catch (PDOException $e) {

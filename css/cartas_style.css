@@ -1,0 +1,207 @@
+.cartas {
+  width: 160px;
+  height: 240px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px 3px var(--Comun);
+  overflow: hidden;
+  position: relative;
+  font-family: var(--textos);
+  font-size: 14px;
+  color: var(--Blanco);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.pokemonId {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 20px;
+  font-weight: var(--textoPeso);
+  z-index: 3;
+}
+.imagenPoke {
+  position: relative;
+  height: 135px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.circuloPoke {
+  position: absolute;
+
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+
+  left: 50%;
+  transform: translate(-50%);
+  top: -80px;
+
+  z-index: 1;
+}
+.imagenPoke img {
+  position: relative;
+  z-index: 2;
+
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  bottom: -10px;
+
+  image-rendering: pixelated;
+}
+
+.cartas h3 {
+  font-family: var(--Titulos);
+  color: var(--Negro);
+  font-size: 14px;
+  text-align: center;
+}
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 10px;
+}
+/* Rarezas */
+.Común {
+  box-shadow: 0 0 8px 3px var(--Comun);
+}
+.PocoComún {
+  box-shadow: 0 0 8px 3px var(--PocoComun);
+}
+.Rara {
+  box-shadow: 0 0 8px 3px var(--Rara);
+}
+.Épica {
+  box-shadow: 0 0 8px 3px var(--Epica);
+}
+.Legendaria {
+  box-shadow: 0 0 8px 3px var(--Legendaria);
+}
+/* ----------------- */
+/* Colores por tipos */
+
+/* Fuego */
+.cartas.Fuego {
+  background-color: var(--Fuego);
+}
+.circuloPoke.Fuego {
+  background: linear-gradient(180deg, var(--FuegoG1), var(--FuegoG2));
+}
+
+/* Agua */
+.cartas.Agua {
+  background-color: var(--Agua);
+}
+.circuloPoke.Agua {
+  background: linear-gradient(180deg, var(--AguaG1), var(--AguaG2));
+}
+
+/* Planta */
+.cartas.Planta {
+  background-color: var(--Planta);
+}
+.circuloPoke.Planta {
+  background: linear-gradient(180deg, var(--PlantaG1), var(--PlantaG2));
+}
+
+/* Eléctrico */
+.cartas.Eléctrico {
+  background-color: var(--Electrico);
+}
+.circuloPoke.Eléctrico {
+  background: linear-gradient(180deg, var(--ElectricoG1), var(--ElectricoG2));
+}
+
+/* Hielo */
+.cartas.Hielo {
+  background-color: var(--Hielo);
+}
+.circuloPoke.Hielo {
+  background: linear-gradient(180deg, var(--HieloG1), var(--HieloG2));
+}
+
+/* Roca */
+.cartas.Roca {
+  background-color: var(--Roca);
+}
+.circuloPoke.Roca {
+  background: linear-gradient(180deg, var(--RocaG1), var(--Roca2));
+}
+
+/* Tierra */
+.cartas.Tierra {
+  background-color: var(--Tierra);
+}
+.circuloPoke.Tierra {
+  background: linear-gradient(180deg, var(--TierraG1), var(--TierraG2));
+}
+
+/* Volador */
+.cartas.Volador {
+  background-color: var(--Volador);
+}
+.circuloPoke.Volador {
+  background: linear-gradient(180deg, var(--VoladorG1), var(--VoladorG2));
+}
+
+/* Veneno */
+.cartas.Veneno {
+  background-color: var(--Veneno);
+}
+.circuloPoke.Veneno {
+  background: linear-gradient(180deg, var(--VenenoG1), var(--VenenoG2));
+}
+
+/* Lucha */
+.cartas.Lucha {
+  background-color: var(--Lucha);
+}
+.circuloPoke.Lucha {
+  background: linear-gradient(180deg, var(--LuchaG1), var(--LuchaG2));
+}
+
+/* Fantasma */
+.cartas.Fantasma {
+  background-color: var(--Fantasma);
+}
+.circuloPoke.Fantasma {
+  background: linear-gradient(180deg, var(--FantasmaG1), var(--FantasmaG2));
+}
+
+/* Dragón */
+.cartas.Dragón {
+  background-color: var(--Dragon);
+}
+.circuloPoke.Dragón {
+  background: linear-gradient(180deg, var(--DragonG1), var(--DragonG2));
+}
+
+/* Bicho */
+.cartas.Bicho {
+  background-color: var(--Bicho);
+}
+.circuloPoke.Bicho {
+  background: linear-gradient(180deg, var(--BichoG1), var(--BichoG2));
+}
+
+/* Psíquico */
+.cartas.Psíquico {
+  background-color: var(--Psiquico);
+}
+.circuloPoke.Psíquico {
+  background: linear-gradient(180deg, var(--PsiquicoG1), var(--PsiquicoG2));
+}
+
+/* Normal */
+.cartas.Normal {
+  background-color: var(--Normal);
+}
+.circuloPoke.Normal {
+  background: linear-gradient(180deg, var(--NormalG1), var(--NormalG2));
+}
