@@ -1,6 +1,4 @@
 <?php
-// Asume que $pdo ya existe gracias a 'require db.php'
-// y que está conectado a la base de datos 'poke_card'.
 require 'db.php';
 
 try {

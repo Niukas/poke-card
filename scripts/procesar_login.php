@@ -34,20 +34,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['sobresDisponibles'] = $usuarioEncontrado['sobres_disponibles'];
             $_SESSION['recargaSobres'] = $usuarioEncontrado['ultima_recarga_sobres'];
             $_SESSION['avatar'] = $usuarioEncontrado['url_imagen'];
+            $_SESSION['idAvatar'] = $usuarioEncontrado['id_avatar'];
+
+            session_write_close();
 
             // Redirijo al dashboard
+            if ($usuarioEncontrado['rol'] == 'admin') {
+                session_write_close();
+                header('Location: ../admin/Index.php');
+                exit;
+            }
             header('Location: ../dashboard.php');
             exit;
         } else {
             $_SESSION['mensaje_error'] = "Usuario o contraseña incorrectos";
+            session_write_close();
             header('Location: ../login.php');
             exit;
         }
     } catch (PDOException $e) {
         $_SESSION['mensaje_error'] = "Error" . $e->getMessage(); // Envio el mensaje de error devuelta al formulario
+        session_write_close();
         header('Location: ../login.php');
         exit;
     }
 } else {
+    session_write_close();
     header('Location: ../login.php'); // Si no es post se devuelve a la pagina
+    exit;
 }

@@ -19,7 +19,8 @@ unset($_SESSION['cartasRecientes']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - PokeCard</title>
+    <title>Cartas Ganadas! - PokeCard</title>
+    <link rel="icon" type="image/x-icon" href="/poke-card/img/ui/favicon.ico">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/head_footer_style.css">
     <link rel="stylesheet" href="./css/cartas_style.css">
@@ -38,7 +39,7 @@ unset($_SESSION['cartasRecientes']);
                 <?php foreach ($cartasMostrar as $cartas): ?>
                     <div class="cartaConEstado">
                         <?php if ($cartas['nueva']): ?>
-                            <span class="etiqueta-nueva">¡NUEVA!</span>
+                            <span class="etiquetaNueva">¡NUEVA!</span>
                         <?php endif; ?>
                         <?php
                         include './includes/cartaTemplate.php';

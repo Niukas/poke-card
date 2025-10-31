@@ -9,6 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro - PokeCard</title>
+    <link rel="icon" type="image/x-icon" href="/poke-card/img/ui/favicon.ico">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/head_footer_style.css">
     <link rel="stylesheet" href="https://use.typekit.net/sdy1dik.css">
@@ -32,6 +33,7 @@ session_start();
             <?php if (isset($_SESSION['mensaje_exito_registro'])) {
                 echo '<p class="exito">' . $_SESSION['mensaje_exito_registro'] . '</p>';
                 unset($_SESSION['mensaje_exito_registro']);
+                echo '<p class="exito"><a href="login.php" class="aRegistro">Iniciar Sesion</a></p>';
             }
             if (isset($_SESSION['mensaje_error_registro'])) {
                 echo '<p class="error">' . $_SESSION['mensaje_error_registro'] . '</p>';

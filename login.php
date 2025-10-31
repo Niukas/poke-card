@@ -1,6 +1,5 @@
 <?php
 session_start();
-$nombre = 'Niuka';
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +9,7 @@ $nombre = 'Niuka';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - PokeCard</title>
+    <link rel="icon" type="image/x-icon" href="/poke-card/img/ui/favicon.ico">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/head_footer_style.css">
     <link rel="stylesheet" href="https://use.typekit.net/sdy1dik.css">
@@ -28,6 +28,7 @@ $nombre = 'Niuka';
             <label for="contra">Contraseña:</label>
             <input type="password" name="password" id="contrasena">
             <button type="submit" class="boton">Enviar</button>
+            <p>¿No tenés cuenta? <a href="registro.php" class="aRegistro">Registrate acá!</a></p>
             <?php if (isset($_SESSION['mensaje_error'])) {
                 echo '<p class="error">' . $_SESSION['mensaje_error'] . '</p>';
                 unset($_SESSION['mensaje_error']);

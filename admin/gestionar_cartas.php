@@ -1,8 +1,15 @@
 <?php
 session_start();
+
+// Si el usuario no esta logeado lo redirijo al login
+if (!isset($_SESSION['idUsuario'])) {
+    header('Location: login.php');
+    exit;
+}
+
 require_once '../includes/db.php';
 $paginaActual = basename($_SERVER['SCRIPT_NAME']);
-$nombre = "Niuka";
+
 
 // Consulta para rellenar los selects de los formularios
 try {
@@ -39,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['accion']) && $_POST['a
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - PokeCard</title>
+    <link rel="icon" type="image/x-icon" href="/poke-card/img/ui/favicon.ico">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/admin_style.css">
     <link rel="stylesheet" href="../css/head_footer_style.css">

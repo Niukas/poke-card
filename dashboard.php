@@ -9,6 +9,7 @@ if (!isset($_SESSION['idUsuario'])) {
 
 require 'includes/db.php';
 
+
 $segundosPorSobre = 3600 * 2; // 1 sobre cada 2 horas (3600 segundos * 2 horas)
 $sobresMaximos = 5;
 
@@ -45,6 +46,7 @@ if ($sobresDisponibles >= $sobresMaximos) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - PokeCard</title>
+    <link rel="icon" type="image/x-icon" href="/poke-card/img/ui/favicon.ico">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/head_footer_style.css">
     <link rel="stylesheet" href="https://use.typekit.net/sdy1dik.css">

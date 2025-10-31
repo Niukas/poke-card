@@ -17,6 +17,7 @@ try {
     echo "Error al cargar los avatares: " . $e->getMessage();
 }
 
+$idAvatarActual = $_SESSION['idAvatar'];
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +26,8 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - PokeCard</title>
+    <title>Ajustes de Usuario - PokeCard</title>
+    <link rel="icon" type="image/x-icon" href="/poke-card/img/ui/favicon.ico">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/head_footer_style.css">
     <link rel="stylesheet" href="https://use.typekit.net/sdy1dik.css">
@@ -37,42 +39,77 @@ try {
 <body>
     <?php require './includes/header.php'; ?>
     <main>
-        <h1>Ajustes de Usuario</h1>
-        <form action="" method="POST" class="contenedorAjustes">
-            <h2>Avatar</h2>
+        <section class="contenedorAjustes">
+            <form action="./scripts/procesar_ajustes_avatar.php" method="POST" class="formAjustes">
+                <h1>Ajustes de Usuario</h1>
+                <label for="">Avatar</label>
 
-            <div class="selectorAvatar">
+                <div class="selectorAvatar">
 
-                <?php
-                foreach ($listaAvatares as $avatar):
+                    <?php
+                    foreach ($listaAvatares as $avatar):
+                    ?>
+                        <div class="opcionAvatar">
+                            <input type="radio"
+                                name="avatarId"
+                                id="avatar<?= $avatar['id'] ?>"
+                                value="<?= $avatar['id'] ?>"
+                                class="input-avatar"
+
+                                <?php
+                                if ($idAvatarActual == $avatar['id']) {
+                                    echo 'checked'; // si es el mismo que el usuario le marco checked
+                                }
+                                ?>>
+                            <label for="avatar<?= $avatar['id'] ?>">
+                                <img src="<?= htmlspecialchars($avatar['url_imagen']) ?>" alt="Avatar <?= $avatar['id'] ?>">
+                            </label>
+                        </div>
+                    <?php
+                    endforeach;
+                    ?>
+                </div>
+                <div>
+
+                </div>
+                <button type="submit" class="boton">Guardar Avatar</button>
+                <?php if (isset($_SESSION['mensaje_error'])) {
+                    echo '<p class="error">' . $_SESSION['mensaje_error'] . '</p>';
+                    unset($_SESSION['mensaje_error']);
+                }
                 ?>
-                    <div class="opcionAvatar">
-                        <input type="radio"
-                            name="avatarId"
-                            id="avatar-<?= $avatar['id'] ?>"
-                            value="<?= $avatar['id'] ?>"
-                            class="input-avatar"
-
-                            <?php
-                            if ($idAvatarActual == $avatar['id']) {
-                                echo 'checked'; // si es el mismo que el usuario le marco checked
-                            }
-                            ?>>
-                        <label for="avatar<?= $avatar['id'] ?>">
-                            <img src="<?= htmlspecialchars($avatar['url_imagen']) ?>" alt="Avatar <?= $avatar['id'] ?>">
-                        </label>
-                    </div>
-                <?php
-                endforeach;
+            </form>
+            <form action="./scripts/procesar_ajustes_nombre.php" method="post" class="formCambioNombre">
+                <label for="nuevoNombre">Cambiar nombre de Usuario</label>
+                <input type="text" name="nuevoNombre" placeholder="Nuevo nombre de Usuario">
+                <button type="submit" class="boton">Enviar</button>
+                <?php if (isset($_SESSION['mensaje_exito_usuario'])) {
+                    echo '<p class="exito">' . $_SESSION['mensaje_exito_usuario'] . '</p>';
+                    unset($_SESSION['mensaje_exito_usuario']);
+                }
+                if (isset($_SESSION['mensaje_error_usuario'])) {
+                    echo '<p class="error">' . $_SESSION['mensaje_error_usuario'] . '</p>';
+                    unset($_SESSION['mensaje_error_usuario']);
+                }
                 ?>
-            </div>
-            <button type="submit" class="boton">Guardar Avatar</button>
-            <?php if (isset($_SESSION['mensaje_error'])) {
-                echo '<p class="error">' . $_SESSION['mensaje_error'] . '</p>';
-                unset($_SESSION['mensaje_error']);
-            }
-            ?>
-        </form>
+            </form>
+            <form action="./scripts/procesar_ajustes_pass.php" method="post" class="formCambioContra">
+                <label for="contraNueva">Cambiar Contraseña</label>
+                <input type="password" name="contraNueva" id="contra1" placeholder="Nueva contraseña">
+                <input type="password" name="contraNuevaRepetida" id="contra2" placeholder="Repite la contraseña">
+                <button type="submit" class="boton">Enviar</button>
+                <?php if (isset($_SESSION['mensaje_exito_contra'])) {
+                    echo '<p class="exito">' . $_SESSION['mensaje_exito_contra'] . '</p>';
+                    unset($_SESSION['mensaje_exito_contra']);
+                }
+                if (isset($_SESSION['mensaje_error_contra'])) {
+                    echo '<p class="error">' . $_SESSION['mensaje_error_contra'] . '</p>';
+                    unset($_SESSION['mensaje_error_contra']);
+                }
+                ?>
+            </form>
+            <a href="./scripts/procesar_logout.php" class="boton abrir">Cerrar Sesión</a>
+        </section>
     </main>
     <?php
     require './includes/nav.php';

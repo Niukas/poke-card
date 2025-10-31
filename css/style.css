@@ -161,13 +161,18 @@ main {
   align-items: center;
   justify-content: center;
   background-color: var(--BlancoH2);
-  padding: 100px 0;
+  padding: 20px 0;
 }
-
+.contenedorIndex,
 .contenedorLogin,
 .contenedorRegistro,
 .contenedorDashboard,
-.contenedorAjustes {
+.contenedorAjustes,
+.contenedorColeccion,
+.contenedorRanking,
+.formAjustes,
+.formCambioNombre,
+.formCambioContra {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -176,31 +181,95 @@ main {
   font-size: var(--textoPx);
   font-weight: var(--textoPeso);
   background-color: var(--Celeste);
+  border-radius: 15px;
   padding: 40px;
   margin: 20px;
   gap: 30px;
   width: 600px;
 }
+.contenedorIndex{
+  background-color: var(--Amarillo);
+  width: 1200px;
+}
 .contenedorDashboard {
   background-color: var(--Amarillo);
   width: 1000px;
 }
-.contenedorCartas{
+.contenedorColeccion {
+  background-color: var(--Amarillo);
+  width: 900px;
+}
+.contenedorCartasColeccion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+  padding: 20px;
+  max-width: 1000px;
+}
+.contenedorCartas {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   gap: 15px;
 }
+.contenedorAjustes {
+  gap: 15px;
+  width: 800px;
+}
+.contenedorLogros{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 15px;
+  margin: auto;
+  font-family: var(--textos);
+  font-size: var(--textoPx);
+  font-weight: var(--textoPeso);
+  background-color: var(--Amarillo);
+}
+.logroItem {
+    width: 90%; 
+    padding: 5px; 
+    border-radius: 8px;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: var(--textos);
+    font-size: 18px; 
+    color: var(--Blanco);
+}
+.logroBloqueado{
+  background-color: var(--GrisInactivo);
+}
+.logroReclamado{
+  background-color: var(--Verde);
+}
 
+.formCambioContra,
+.formCambioNombre,
+.formAjustes {
+  padding: 0;
+  margin: 0;
+}
+.contenedorIndex h2,
 .contenedorLogin h2,
-.contenedorRegistro h2 {
+.contenedorRegistro h2,
+.contenedorColeccion h2,
+.contenedorRanking h2,
+.contenedorAjustes h1,
+.contenedorLogros h2{
   text-align: center;
   margin-bottom: 10px;
   font-family: var(--Titulos);
   font-size: var(--TitulosPx);
   font-weight: var(--TitulosPeso);
 }
+
 .contenedorLogin,
 .contenedorRegistro label {
   justify-self: end;
@@ -208,7 +277,9 @@ main {
 .contenedorLogin input[type="text"],
 .contenedorLogin input[type="password"],
 .contenedorRegistro input[type="text"],
-.contenedorRegistro input[type="password"] {
+.contenedorRegistro input[type="password"],
+.formCambioContra input[type="password"],
+.formCambioNombre input[type="text"] {
   width: 100%;
   padding: 8px;
   border: 2px solid var(--GrisClaro);
@@ -219,9 +290,22 @@ main {
   font-weight: var(--textoPeso);
   box-sizing: border-box;
 }
+.aRegistro {
+  color: var(--Rojo);
+}
+.aRegistro:hover {
+  color: var(--Blanco);
+}
+
+.selectorAvatar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+}
 
 .exito,
-.error {
+.error{
   text-align: center;
   width: 100%;
   background-color: var(--Verde);
@@ -234,6 +318,13 @@ main {
 .error {
   background-color: var(--Rojo);
 }
+.logroBloqueado{
+  background-color: var(--GrisInactivo);
+}
+.logroReclamable{
+  background-color: var(--Verde);
+}
+
 .botones {
   display: flex;
   flex-direction: row;
@@ -272,4 +363,45 @@ main {
   height: auto;
 }
 
+/*  --------   */
+/* Tabla Ranking */
+.tablaRanking {
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  border-collapse: separate;
+  border-spacing: 2px;
+  font-family: var(--textos);
+  font-size: var(--textoPx);
+}
+.tablaRanking th,
+.tablaRanking td {
+  padding: 12px 15px;
+}
+.tablaRanking th {
+  background-color: var(--GrisInactivo);
+  color: var(--Blanco);
+  font-family: var(--Titulos);
+  font-size: var(--TitulosPx);
+}
+.tablaRanking tbody tr {
+  background-color: var(--GrisClaro);
+}
+.columnaPuesto {
+  text-align: center;
+  width: 50px;
+}
+.columnaUsuario {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.columnaUsuario img {
+  width: 40px;
+  height: 40px;
+}
+.columnaPuntaje {
+  text-align: right;
+  font-weight: bold;
+}
 /*  --------   */

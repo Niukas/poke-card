@@ -15,10 +15,6 @@ if ($sobresActuales < $sobresMaximos) {
 
     $tiempoDeAhora = time(); // Guardo el momento exacto de ahora
 
-    //Verifico si la fecha esta mal en la db
-    if ($tiempoUltimaRecarga < 1704067200) {
-        $tiempoUltimaRecarga = 0;
-    }
 
     $segundosPasados = $tiempoDeAhora - $tiempoUltimaRecarga; // obtengo cuantos segundos psaron de la ultima recarga
 
@@ -57,6 +53,7 @@ if ($sobresActuales < $sobresMaximos) {
             // Actualizo los datos de la sesion
             $_SESSION['sobresDisponibles'] = $sobreFinal;
             $_SESSION['recargaSobres'] = date('Y-m-d H:i:s', $nuevoTimestampRecarga);
+            session_write_close();
         } catch (PDOException $e) {
             echo "Error" . $e->getMessage();
         }
